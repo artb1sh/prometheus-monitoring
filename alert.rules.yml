@@ -1,0 +1,9 @@
+File: /prometheus/alert.rules; Group name: alert.rules.yml
+-------
+alert: service_down
+expr: up == 0
+for: 5m
+annotations:
+  host: '{{ $labels.instance }}'
+  summary: '{{ $labels.job }} instance is down'
+-------
